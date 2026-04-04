@@ -13,3 +13,28 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: rate_jaeger
+    ports:
+      - '16686:16686'
+      - '4317:4317'
+      - '4318:4318'
+
+  app:
+    build:
+      context: .
+      dockerfile: services/rate-service/Dockerfile
+    container_name: rate_app
+    ports:
+      - '50051:50051'
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=jaeger:4317
+    env_file:
+      - services/rate-service/.env
+    depends_on:
+      db:
+        condition: service_healthy
+      jaeger:
+        condition: service_started

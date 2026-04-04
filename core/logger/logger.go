@@ -6,10 +6,10 @@ import (
 )
 
 // Init logger dev and prod modes
-func NewLogger(env string) *zap.Logger {
+func NewLogger(logLevel string) *zap.Logger {
 	var config zap.Config
 
-	if env == "prod" {
+	if logLevel == "prod" {
 		config = zap.NewProductionConfig()
 	} else {
 		config = zap.NewDevelopmentConfig()
