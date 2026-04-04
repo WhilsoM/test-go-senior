@@ -22,23 +22,25 @@ and persists USDT rates from the Grinex exchange.
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/WhilsoM/test-go-senior.git](https://github.com/WhilsoM/test-go-senior.git)
+git clone https://github.com/WhilsoM/test-go-senior.git
 cd test-go-senior
 ```
 
 ## Setup Environment Variables (IMPORTANT)
 
 The project requires .env files to be present in two locations. You must copy
-them from the provided examples: Global / Docker Compose Config:
+them from the provided examples:
+
+Global / Docker Compose Config:
 
 ```bash
-    cp .env.example .env
+cp .env.example .env
 ```
 
 Service Internal Config:
 
 ```bash
-    cp services/rate-service/.env.example services/rate-service/.env
+cp services/rate-service/.env.example services/rate-service/.env
 ```
 
 Note: In services/rate-service/.env, ensure DATABASE_URL uses the hostname db
@@ -104,7 +106,7 @@ Jaeger UI: Access http://localhost:16686 to visualize request traces.
 Database Check: To verify saved rates directly in PostgreSQL:
 
 ```bash
-    docker exec -it rate_db psql -U postgres -d rate_service -c "SELECT * FROM rates;"
+docker exec -it rate_db psql -U postgres -d rate_service -c "SELECT * FROM rates;"
 ```
 
 Logs: Structured JSON logging is handled by zap.
