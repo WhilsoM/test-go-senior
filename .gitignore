@@ -1,0 +1,24 @@
+# Binaries
+bin/
+services/rate-service/cmd/api/main
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Go
+vendor/
+go.sum
+*.test
+*.out
+
+# Protobuf / Buf
+gen/
+
+# Env
+*.env
