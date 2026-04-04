@@ -58,6 +58,21 @@ or via Makefile
 make docker-build
 ```
 
+or via flags
+
+```bash
+docker compose up -d db jaeger
+```
+
+and then
+
+```bash
+cd services/rate-service && go run cmd/api/main.go \                                                            4s
+  --db-url="postgres://postgres:password@localhost:5432/rate_service?sslmode=disable" \
+  --grpc-port=":50051" \
+  --exchange-url="https://grinex.io/api/v1/spot/depth?symbol=usdta7a5"
+```
+
 ## 🏗 Makefile Commands
 
 Command Description

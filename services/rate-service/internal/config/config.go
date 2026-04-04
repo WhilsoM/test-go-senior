@@ -25,6 +25,7 @@ func MustLoadConfig() *Config {
 
 	dbURL := flag.String("db-url", cfg.DatabaseURL, "Database connection string")
 	grpcPort := flag.String("grpc-port", cfg.GRPCPort, "gRPC server port")
+	excURL := flag.String("exchange-url", cfg.ExchangeURL, "Exchange API URL")
 	flag.Parse()
 
 	if isFlagPassed("db-url") {
@@ -32,6 +33,9 @@ func MustLoadConfig() *Config {
 	}
 	if isFlagPassed("grpc-port") {
 		cfg.GRPCPort = *grpcPort
+	}
+	if isFlagPassed("exchange-url") {
+		cfg.ExchangeURL = *excURL
 	}
 
 	return &cfg
