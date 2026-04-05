@@ -27,5 +27,7 @@ COPY --from=builder /bin/app .
 
 COPY services/rate-service/migrations ./migrations
 
+EXPOSE 50051
+
 RUN chmod +x ./app
 CMD ["./app"]
