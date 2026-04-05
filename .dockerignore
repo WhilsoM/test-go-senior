@@ -1,0 +1,10 @@
+# Ignore all files by default
+*
+
+# Include specific directories and files
+!core/
+!gen/go/
+!services/rate-service/
+!go.mod
+!go.sum
+!go.work

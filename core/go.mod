@@ -1,6 +1,6 @@
 module github.com/WhilsoM/test-go-senior/core
 
-go 1.25.0
+go 1.26
 
 require (
 	github.com/jackc/pgx/v5 v5.9.1
